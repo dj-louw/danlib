@@ -19,7 +19,7 @@ using namespace std;
 class FileTool
 {
 	private:
-		std::fstream mIFile, mOFile;
+		fstream mIFile, mOFile;
 
 		bool OpenIFile(string _name)
 		{
