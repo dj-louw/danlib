@@ -7,13 +7,6 @@ Basic file operation class providing file IO
 Coyright Daniël Louw <daniel@dline.co.za> 2014
 */
 
-#include <string>
-#include <fstream>	
-#include <iostream>
-#include <iterator> // for istream_iterator
-#include <algorithm> // for std::copy
-#include <vector>
-
 using namespace std;
 
 class FileTool
