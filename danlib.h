@@ -19,6 +19,7 @@ Coyright Daniël Louw <daniel@dline.co.za> 2014
 namespace DanLib 
 {
 	#include "util/FileTool.hpp"
+	#include "util/Tokenizer.hpp"
 	#include "sort/BitonicSorter.hpp"	
 }
 
