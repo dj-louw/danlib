@@ -81,6 +81,16 @@ class FileTool
 			if (mOFile.is_open())
 				mOFile.close();
 		}
+		void CloseIFile()
+		{
+			if (mIFile.is_open())
+				mIFile.close();			
+		}
+		void CloseOFile()
+		{
+			if (mOFile.is_open())
+				mOFile.close();	
+		}		
 
 		/*
 		* Write the contents of the string to the file
@@ -101,13 +111,13 @@ class FileTool
 		* Read a line from the opened file
 		*/
 		bool ReadLineFromFile(string& _currentline)
-		{			
-			if (mIFile.is_open())
-				getline(mIFile, _currentline);
-
+		{		
 			if (!mIFile.eof())
-				return true;	
-			else return false;
+			{
+				if (mIFile.is_open())
+					return getline(mIFile, _currentline);				
+			}
+			return false;
 		}
 
 		/*
@@ -127,6 +137,23 @@ class FileTool
 		{
 			copy(_inVec.begin(), _inVec.end(), ostream_iterator<int>(mOFile, _delim.c_str()));
 		}
+
+
+		/*
+		* Writes the contents of a vector to the file, default delimination is a newline
+		*/
+		void WriteStringVectorToFile(vector<string> _inVec, string _delim = "\n")
+		{
+
+			for (auto elem : _inVec)
+			{
+				WriteToFile(elem);
+				WriteToFile(_delim);
+			}
+			WriteToFile("\n");
+
+			//copy(_inVec.begin(), _inVec.end(), ostream_iterator<int>(mOFile, _delim.c_str()));
+		}		
 
 
 };
