@@ -108,6 +108,14 @@ class FileTool
 		}
 
 		/*
+		* Same as WriteToFile but appends a newline to the end
+		*/
+		void WriteToFileNewLine(int _intToWrite)
+		{
+			mOFile << _intToWrite << endl;
+		}		
+
+		/*
 		* Read a line from the opened file
 		*/
 		bool ReadLineFromFile(string& _currentline)
@@ -136,6 +144,7 @@ class FileTool
 		void WriteVectorToFile(vector<int> _inVec, string _delim = "\n")
 		{
 			copy(_inVec.begin(), _inVec.end(), ostream_iterator<int>(mOFile, _delim.c_str()));
+			WriteToFile("\n");
 		}
 
 
